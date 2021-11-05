@@ -1,4 +1,4 @@
-/// Computer play that chooses the computer Selection
+/// ComputerPlay that chooses the computer Selection
 
 function computerPlay() {
     let rock = "rock";
@@ -14,37 +14,96 @@ function computerPlay() {
     }
 }
 
-const computerSelection = computerPlay();
-console.log(computerSelection);
+
 
 // Ask  for the player's Selection
 
-let playerSelection = prompt('Rock, Paper, Scissors ?').toLowerCase();
+function askPlayer() {
+let slc = prompt('Rock, Paper, Scissors ?').toLowerCase();
 
-while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors')  {
+while (slc !== 'rock' && slc !== 'paper' && slc !== 'scissors')  {
     alert('incorrect');
-    playerSelection= prompt('Rock, Paper, Scissors ?').toLowerCase();
+    slc= prompt('Rock, Paper, Scissors ?').toLowerCase();
+
+}
+return slc;
 }
 
-console.log(playerSelection);
+
+
 
 // Playing one round
 
+let playerWins = 'u won';
+let computerWins = 'comp won';
+let gameTie = 'tie';
+
 function playRound (playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
-        return 'its a tie!';
+        return gameTie;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return 'you won with your paper!';
+        return playerWins;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return 'you won with your rock!';
+        return playerWins;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return 'you won with your rusty scissors!';
+        return playerWins;
     } else {
-        return 'the stupid computer won!';
+        return computerWins;
     }
 }
 
-console.log(playRound(playerSelection, computerSelection));
+
 
 // Playing a best of 5 game
+// ta vaghti bazi mikonan ke majmooe wine yeki be 3 berese
+let computerRoundsWon = 0;
+let playerRoundsWon = 0;
 
+function game() { 
+    
+
+    while (computerRoundsWon < 3 && playerRoundsWon < 3) {
+
+     
+    let computerSelection = computerPlay()
+    let playerSelection = askPlayer()
+
+    if (playRound(playerSelection,computerSelection) === computerWins && computerRoundsWon === 2) {
+        computerRoundsWon += 1
+        console.log('computer won the bo5 game')
+
+
+    } 
+    
+    else if     (playRound(playerSelection,computerSelection) === playerWins && playerRoundsWon === 2) {
+        playerRoundsWon += 1
+        console.log('player won the bo5 game')
+    }
+    
+
+
+     else if (playRound(playerSelection,computerSelection) === computerWins && computerRoundsWon < 3) {
+        console.log(computerWins)
+        computerRoundsWon += 1
+        console.log(computerRoundsWon)
+    } 
+    
+    else if (playRound(playerSelection,computerSelection) === playerWins && playerRoundsWon < 3 ) {
+        console.log(playerWins)
+        playerRoundsWon += 1
+        console.log(playerRoundsWon)
+    }
+    
+
+
+    else  {
+        console.log('it was a tie! doesnt add any points')
+    } 
+
+
+}
+
+
+}
+
+game()
