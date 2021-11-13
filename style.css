@@ -1,0 +1,65 @@
+html {
+    box-sizing: border-box;
+    font-family: "IRANSans";
+    font-size: 10px;
+}
+
+*, *::before , *::after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-size: 1.6em;
+    text-align: center;
+    background-color: #023047;
+    display: flex;
+    justify-content: center;
+
+}   
+
+.main-container {
+    color: #ffb703;
+    width: 80vh;
+}
+
+.header-text {
+    font-weight: 400;
+    padding-top: 5rem;
+    background-color: rgba(255, 183, 3, .3);
+    margin: 5rem;
+    padding-bottom: 3rem;
+}
+
+.header-text h1 {
+    padding-bottom: 3rem;
+}
+
+
+
+
+
+.rps-container {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rps-btn-container {
+
+}
+
+.btn {
+    padding: 4rem 7rem;
+    background-color: #FFB703;
+    font-size: 3rem;
+    border-radius: 1rem;
+}
+
+.btn:hover {
+    background-color: royalblue;
+}
