@@ -3,15 +3,12 @@
 function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3 + 1);
     if (randomNumber === 1) {
-        console.log('computer played rock');
         computerPlayedPara.textContent = "کامبیوتر سنگ آورد"
         return 'rock';
     } else if (randomNumber === 2) {
-        console.log('computer played paper');
         computerPlayedPara.textContent = "کامبیوتر کاغذ آورد"
         return 'paper';
     } else {
-        console.log('computer played scissors');
         computerPlayedPara.textContent = "کامبیوتر قیچی آورد "
         return 'scissors';
     }
@@ -27,7 +24,6 @@ let roundWinner;
 function playRound () {
     let computerSelection = computerPlay()
     playerSelection = btnOption;
-    console.log('you played ' + playerSelection);
 
     if (playerSelection === computerSelection) {
         roundWinner = 'tie';
@@ -71,7 +67,6 @@ const buttons = Array.from(document.querySelectorAll('.btn'));
 buttons.forEach(key => key.addEventListener('click', function () {
     btnOption = this.id;
     playRound();
-    console.log(roundWinner)
     updateScore();
     determineWinner();
 }));
