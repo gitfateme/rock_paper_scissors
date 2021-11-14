@@ -63,14 +63,12 @@ function updateScore() {
     }
 }
 
-const buttons = Array.from(document.querySelectorAll('.btn'));
-
-buttons.forEach(key => key.addEventListener('click', function () {
-    btnOption = this.id;
-    playRound();
-    updateScore();
-    determineWinner();
-}));
+function clearScores() {
+    pRoundsWon = 0;
+    cRoundsWon = 0;
+    playerScore.textContent = pRoundsWon;
+    computerScore.textContent = cRoundsWon;
+}
 
 function determineWinner() {
     if (pRoundsWon < 5 && cRoundsWon <5) {
@@ -86,9 +84,11 @@ function determineWinner() {
 
 }   
 
-function clearScores() {
-    pRoundsWon = 0;
-    cRoundsWon = 0;
-    playerScore.textContent = pRoundsWon;
-    computerScore.textContent = cRoundsWon;
-}
+const buttons = Array.from(document.querySelectorAll('.btn'));
+
+buttons.forEach(key => key.addEventListener('click', function () {
+    btnOption = this.id;
+    playRound();
+    updateScore();
+    determineWinner();
+}));
