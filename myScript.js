@@ -19,92 +19,60 @@ function computerPlay() {
         computerPlayedPara.textContent = "کامبیوتر قیچی آورد "
         return scissors;
     }
-
-}
+};
 
 // Playing one round
-let playerWins = 'u won';
-let computerWins = 'comp won';
-let gameTie = 'tie';
 
 const computerPlayedPara = document.querySelector('.computer-playtext');
 const roundWinnerPara = document.querySelector('.round-winner');
 
 
+let roundWinner;
+
 function playRound () {
     let computerSelection = computerPlay()
-    playerSelection = buttn;
+    playerSelection = btnOption;
     console.log('you played ' + playerSelection);
 
     if (playerSelection === computerSelection) {
+        roundWinner = 'tie';
         roundWinnerPara.textContent = "مساوی شدین"
-        console.log(gameTie);
-        gameTie;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        roundWinner = 'player';
         roundWinnerPara.textContent = "برنده شدی"
-        console.log(playerWins);
-        playerWins;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        roundWinner = 'player';
         roundWinnerPara.textContent = "برنده شدی"
-        console.log(playerWins);
-        playerWins;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        roundWinner = 'player';
         roundWinnerPara.textContent = "برنده شدی"
-        console.log(playerWins);
-        playerWins;
     } else {
-        console.log(computerWins);
+        roundWinner = 'computer';
         roundWinnerPara.textContent = " باختی و ضایع شدی"
-        computerWins;
     } 
 }
-
-// Playing a best of 5 game
-// ta vaghti bazi mikonan ke majmooe wine yeki be 3 berese
-
-// function game() { 
-//     let computerRoundsWon = 0;
-//     let playerRoundsWon = 0;
-
-//     while (computerRoundsWon < 3 && playerRoundsWon < 3) {
-//     let computerSelection = computerPlay()
-//     let playerSelection = askPlayer()
-
-//     if (playRound(playerSelection,computerSelection) === computerWins && computerRoundsWon === 2) {
-//         computerRoundsWon += 1
-//         console.log('computer won the bo5 game')
-//     }
-//     else if     (playRound(playerSelection,computerSelection) === playerWins && playerRoundsWon === 2) {
-//         playerRoundsWon += 1
-//         console.log('player won the bo5 game')
-//     }
-//      else if (playRound(playerSelection,computerSelection) === computerWins && computerRoundsWon < 3) {
-//         console.log(computerWins)
-//         computerRoundsWon += 1
-//         console.log(computerRoundsWon)
-//     } 
-//     else if (playRound(playerSelection,computerSelection) === playerWins && playerRoundsWon < 3 ) {
-//         console.log(playerWins)
-//         playerRoundsWon += 1
-//         console.log(playerRoundsWon)
-//     }
-//     else  {
-//         console.log('it was a tie! doesnt add any points')
-//     } 
-// }};
+let pRoundsWon = 0;
+let cRoundsWon = 0;
+let playerScore = document.querySelector('.player-score');
+let computerScore = document.querySelector('.computer-score');
 
 
 const buttons = Array.from(document.querySelectorAll('.btn'));
-// buttons.forEach(btn => btn.addEventListener("click", function() {
-//     playerSelection = btn.id;
-//     playRound();
-// }));
-let buttn = ""
-// playerSelection = buttons.forEach(btn => btn.addEventListener('click', playRound))
-buttons.forEach(btn => btn.addEventListener('click', function() {
-    buttn = btn.id;
+buttons.forEach(key => key.addEventListener('click', function () {
+    btnOption = this.id;
     playRound();
+    console.log(roundWinner)
+    updateScore();
 }));
 
-//play untill 5 wins
+function updateScore() {
 
+
+    if (roundWinner === 'player') {
+        pRoundsWon += 1;
+        playerScore.textContent = pRoundsWon;
+    } else if (roundWinner === 'computer') {
+        cRoundsWon += 1;
+        computerScore.textContent = cRoundsWon;
+    }
+}

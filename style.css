@@ -49,8 +49,11 @@ body {
     align-items: center;
 }
 
-.rps-btn-container {
-
+.score-container { 
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10rem;
 }
 
 .btn {
