@@ -45,6 +45,7 @@ function playRound () {
     
     if (pRoundsWon === 0 || cRoundsWon === 0) {
         gameWinnerPara.textContent= '';
+        gameWinnerPara.classList.remove('loser-para')
     } 
 }
 let pRoundsWon = 0;
