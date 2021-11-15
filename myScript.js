@@ -27,7 +27,7 @@ function playRound () {
 
     if (playerSelection === computerSelection) {
         roundWinner = 'tie';
-        roundWinnerPara.textContent = "مساوی شدین"
+        roundWinnerPara.textContent = "مثل هم آوردین! کسی امتیاز نگرفت"
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         roundWinner = 'player';
         roundWinnerPara.textContent = "یک امتیاز گرفتی"
