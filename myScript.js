@@ -3,13 +3,13 @@
 function computerPlay() {
     let randomNumber = Math.floor(Math.random()*3 + 1);
     if (randomNumber === 1) {
-        computerPlayedPara.textContent = "کامبیوتر سنگ آورد"
+        computerPlayedPara.textContent = "کامپیوتر سنگ آورد"
         return 'rock';
     } else if (randomNumber === 2) {
-        computerPlayedPara.textContent = "کامبیوتر کاغذ آورد"
+        computerPlayedPara.textContent = "کامپیوتر کاغذ آورد"
         return 'paper';
     } else {
-        computerPlayedPara.textContent = "کامبیوتر قیچی آورد "
+        computerPlayedPara.textContent = "کامپیوتر قیچی آورد "
         return 'scissors';
     }
 };
@@ -39,7 +39,7 @@ function playRound () {
         roundWinnerPara.textContent = "یک امتیاز گرفتی"
     } else {
         roundWinner = 'computer';
-        roundWinnerPara.textContent = "یک امتیاز برای کامبیوتر "
+        roundWinnerPara.textContent = "یک امتیاز برای کامپیوتر "
     }
 
     
@@ -77,7 +77,7 @@ function determineWinner() {
         gameWinnerPara.textContent = 'برنده ی بازی شدی'
         gameWinnerPara.classList.add('winner-para')
         } else if (cRoundsWon === 5){
-            gameWinnerPara.textContent = 'به کامبیوتر باختی آفرین'
+            gameWinnerPara.textContent = 'به کامپیوتر باختی آفرین'
             gameWinnerPara.classList.add('loser-para')
     }
     clearScores();
